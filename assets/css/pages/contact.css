@@ -1,0 +1,220 @@
+.contact-us {
+  padding: 120px 0;
+}
+.contact-us__content-title {
+  font-weight: 700;
+}
+@media screen and (max-width: 575.98px) {
+  .contact-us__content-title {
+    text-align: center;
+  }
+}
+.contact-us__content-desc {
+  color: grey;
+}
+@media screen and (max-width: 575.98px) {
+  .contact-us__content-desc {
+    text-align: center;
+  }
+}
+.contact-us__mid {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 200px 0;
+  margin: 48px 0;
+  margin-bottom: 200px;
+  background-image: url("/assets/img/contact-bg-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (max-width: 767.98px) {
+  .contact-us__mid {
+    margin-bottom: 300px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .contact-us__mid {
+    margin-bottom: 400px;
+  }
+}
+.contact-us__mid-card {
+  position: absolute;
+  max-width: inherit;
+  width: 100%;
+  padding: 56px 48px;
+  background-color: black;
+  z-index: 1;
+  color: white;
+}
+@media screen and (max-width: 767.98px) {
+  .contact-us__mid-card {
+    max-width: unset;
+    left: 0;
+    padding: 32px 48px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contact-us__mid-card-col {
+    margin-bottom: 24px;
+  }
+}
+.contact-us__mid-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 767.98px) {
+  .contact-us__mid-card-title {
+    margin-bottom: 20px;
+  }
+}
+.contact-us__mid-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-us__mid-card-content-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+.contact-us__mid-card-content-address {
+  margin: 0;
+  color: #cccccc;
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__mid-card-content-address {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  .contact-us__mid-card-content-address {
+    font-size: 12px;
+  }
+}
+.contact-us__mid-card-content-contact {
+  color: #999999;
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__mid-card-content-contact {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  .contact-us__mid-card-content-contact {
+    font-size: 12px;
+  }
+}
+.contact-us__mid-card-content-contact p {
+  margin: 0;
+}
+.contact-us__row {
+  flex-direction: row-reverse;
+}
+.contact-us__left-content-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+.contact-us__left-content-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
+  margin: 32px 0;
+}
+@media screen and (max-width: 1199.98px) {
+  .contact-us__left-content-form {
+    gap: 27px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__left-content-form {
+    gap: 16px;
+  }
+}
+.contact-us__left-content-input, .contact-us__left-content-select {
+  width: 48%;
+  padding: 12px;
+  border: 1px solid #efefef;
+}
+@media screen and (max-width: 1199.98px) {
+  .contact-us__left-content-input, .contact-us__left-content-select {
+    width: 47%;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__left-content-input, .contact-us__left-content-select {
+    width: 100%;
+  }
+}
+.contact-us__left-content-select {
+  appearance: none;
+  background: #fff url("/assets/svg/arrow.svg") right 0.75rem center/8px 10px no-repeat;
+}
+.contact-us__left-content-textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border: 1px solid #efefef;
+}
+.contact-us__left-content-button {
+  background-color: #181d21;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 12px 24px;
+}
+.contact-us__left-content-button:hover {
+  background-color: black;
+}
+.contact-us__right-content-header {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-us__right-content-body {
+  width: 100%;
+  height: 255px;
+  margin: 32px 0;
+}
+@media screen and (max-width: 1199.98px) {
+  .contact-us__right-content-body {
+    height: 265px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__right-content-body {
+    height: 375px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contact-us__right-content-body {
+    width: unset;
+    height: unset;
+    aspect-ratio: 1/1;
+  }
+}
+.contact-us__right-content-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+.contact-us__right-content-map {
+  width: 100%;
+  height: 100%;
+}
+.contact-us__right-content-select {
+  width: 30%;
+  padding: 5px;
+  background: #fff url("/assets/svg/arrow.svg") right 0.75rem center/8px 10px no-repeat;
+  border: 1px solid #efefef;
+  appearance: none;
+}
+@media screen and (max-width: 991.98px) {
+  .contact-us__right-content-select {
+    width: 40%;
+  }
+}
+
+/*# sourceMappingURL=contact.css.map */

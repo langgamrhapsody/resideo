@@ -1,0 +1,751 @@
+@use "sass:math";
+@use "../_config.scss" as *;
+
+%hover-style {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 0;
+  border-radius: 25px;
+  opacity: 0;
+  transition: all ease-in-out 0.4s;
+}
+
+.hero {
+  position: relative;
+  padding: 200px 0;
+  background: color(bg, secondary);
+  &:hover &__button {
+    &:after {
+      opacity: 1;
+      padding-right: 50px;
+    }
+  }
+
+  &__swiper {
+    &--left {
+      @extend .hero__swiper;
+
+      .hero-text-swiper {
+        margin: unset;
+        width: 65%;
+        color: white;
+
+        @media screen and (max-width: 991.98px) {
+          width: unset;
+        }
+
+        // @media screen and (max-width: 767.98px) {
+        //   position: absolute;
+        //   bottom: 0;
+        //   left: 50%;
+        //   transform: translateX(-50%);
+        // }
+
+        &__title {
+          font-weight: 700;
+          margin-bottom: 4px;
+
+          @media screen and (max-width: 767.98px) {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+
+        &__desc {
+          margin-bottom: 20px;
+          color: colorMod(white, -20%);
+        }
+
+        &__price {
+          margin-bottom: 72px;
+          font-weight: 600;
+          font-size: 24px;
+
+          @media screen and (max-width: 767.98px) {
+            margin-bottom: 24px;
+          }
+        }
+      }
+
+      @media screen and (max-width: 767.98px) {
+        padding: 25px;
+      }
+    }
+    &--right {
+      @extend .hero__swiper;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 0;
+      z-index: 0;
+
+      .hero-img-swiper {
+        height: 100%;
+
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          @media screen and (max-width: 767.98px) {
+            filter: brightness(0.7);
+          }
+        }
+      }
+
+      @media screen and (max-width: 767.98px) {
+        position: unset;
+        height: 65vh;
+      }
+    }
+
+    &-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media screen and (max-width: 767.98px) {
+        width: 100%;
+        bottom: 50%;
+      }
+    }
+
+    &-button {
+      z-index: 5;
+      display: flex;
+      background-color: black;
+
+      @media screen and (max-width: 767.98px) {
+        justify-content: space-between;
+        width: 100%;
+
+        gap: unset;
+        background-color: unset;
+        padding: 24px 8px;
+      }
+
+      .hero__swiper-button-next {
+        position: unset;
+        width: unset;
+        height: unset;
+        margin-top: unset;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 12px;
+
+        @media screen and (max-width: 767.98px) {
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        &:after {
+          content: unset;
+        }
+      }
+
+      .hero__swiper-button-prev {
+        position: unset;
+        width: unset;
+        height: unset;
+        margin-top: unset;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 12px;
+
+        @media screen and (max-width: 767.98px) {
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        &:after {
+          content: unset;
+        }
+      }
+    }
+
+    &-pagination {
+      position: unset !important;
+      color: white !important;
+      font-weight: 800;
+
+      @media screen and (max-width: 767.98px) {
+        // display: block;
+        // width: 100% !important;
+        // text-align: center !important;
+        // left: 0 !important;
+        // transform: unset !important;
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    color: white;
+
+    &:after {
+      border: 2px solid white;
+    }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    padding: 0;
+    height: 100vh;
+  }
+}
+
+.featured-properties {
+  padding: 100px 0;
+
+  &:hover &__button {
+    &:after {
+      opacity: 1;
+      padding-right: 50px;
+    }
+  }
+
+  &__content {
+    &-title {
+      font-weight: 700;
+
+      @media screen and (max-width: 575.98px) {
+        text-align: center;
+      }
+    }
+
+    &-desc {
+      color: grey;
+      @media screen and (max-width: 575.98px) {
+        text-align: center;
+      }
+    }
+
+    &-row {
+      padding: 48px 0;
+
+      @media screen and (max-width: 575.98px) {
+        justify-content: center;
+      }
+    }
+
+    &-item {
+      margin-bottom: 24px;
+    }
+
+    &-button {
+      position: relative;
+      color: black;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all ease-in-out 0.4s;
+      cursor: pointer;
+
+      &:hover {
+        color: color(text, primary);
+
+        &:after {
+          border-color: color(text, primary);
+        }
+      }
+
+      &:after {
+        @extend %hover-style;
+        left: 100%;
+        margin-left: 10px;
+
+        border-bottom: 3px solid black;
+      }
+    }
+  }
+
+  &__button {
+    color: black;
+
+    &:after {
+      border: 2px solid black;
+    }
+  }
+}
+
+.choose-us {
+  position: relative;
+  padding: 200px 0;
+  color: white;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("/assets/img/services-c-fig-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width: 991.98px) {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 991.98px) {
+    padding: 50px 0;
+  }
+
+  &:hover &__button {
+    &:after {
+      opacity: 1;
+      padding-right: 50px;
+    }
+  }
+
+  &__container {
+  }
+
+  &__row {
+    width: 100%;
+
+    @media screen and (max-width: 991.98px) {
+      margin: auto;
+    }
+  }
+
+  &__content {
+    // padding-left: 200px;
+    color: white;
+    position: relative;
+
+    &-title {
+      font-weight: 700;
+    }
+
+    &-desc {
+      color: colorMod(white, -20%);
+    }
+
+    &-button {
+      position: relative;
+      margin-top: 24px;
+      padding: 0;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all ease-in-out 0.4s;
+      cursor: pointer;
+
+      &:hover {
+        color: color(text, primary);
+
+        &:after {
+          border-color: color(text, primary);
+        }
+      }
+
+      &:after {
+        @extend %hover-style;
+        left: 100%;
+        margin-left: 10px;
+
+        border-bottom: 3px solid white;
+      }
+    }
+  }
+
+  &__swiper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    @media screen and (max-width: 991.98px) {
+      position: relative;
+      transform: translateY(0);
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          height: auto;
+        }
+      }
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px;
+      margin-top: 14px;
+
+      // @media screen and (max-width: 991.98px) {
+      //   bottom: 10%;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      // }
+
+      .choose-swiper-button-next {
+        position: unset;
+        width: unset;
+        height: unset;
+        margin-top: unset;
+        color: black;
+
+        &:after {
+          content: unset;
+        }
+
+        @media screen and (max-width: 991.98px) {
+          color: white;
+        }
+      }
+
+      .choose-swiper-button-prev {
+        position: unset;
+        width: unset;
+        height: unset;
+        margin-top: unset;
+        color: black;
+
+        &:after {
+          content: unset;
+        }
+        @media screen and (max-width: 991.98px) {
+          color: white;
+        }
+      }
+    }
+
+    &-card {
+      height: 100%;
+      background-color: black;
+      padding: 24px;
+      text-align: center;
+      cursor: grab;
+
+      &-svg {
+        width: 100px;
+        height: 100px;
+        transition: all ease-in-out 0.4s;
+
+        @media screen and (max-width: 991.98px) {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      &-title {
+        margin-top: 42px;
+        font-size: 1.25rem;
+
+        font-weight: 600;
+        transition: all ease-in-out 0.4s;
+
+        @media screen and (max-width: 991.98px) {
+          font-size: 18px;
+        }
+      }
+
+      &-desc {
+        color: colorMod(white, -20%);
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__button {
+    color: white;
+
+    &:after {
+      border: 2px solid white;
+    }
+  }
+}
+
+.featured-agents {
+  padding: 100px 0;
+
+  &:hover &__button {
+    &:after {
+      opacity: 1;
+      padding-right: 50px;
+    }
+  }
+
+  &__content {
+    &-title {
+      font-weight: 700;
+
+      @media screen and (max-width: 575.98px) {
+        text-align: center;
+      }
+    }
+
+    &-desc {
+      color: grey;
+      @media screen and (max-width: 575.98px) {
+        text-align: center;
+      }
+    }
+
+    &-row {
+      padding: 48px 0;
+
+      @media screen and (max-width: 575.98px) {
+        justify-content: center;
+      }
+    }
+
+    &-item {
+      margin-bottom: 56px;
+      .agent-card {
+        display: block;
+        position: relative;
+        // width: 100%;
+        // height: 300px;
+        border-radius: 10px;
+
+        transition: all ease-in-out 0.3s;
+
+        &:hover {
+          box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+        }
+
+        &:hover .agent-card__info {
+          max-height: 100px;
+        }
+
+        &:hover .agent-card__info-name {
+          padding: 0;
+        }
+
+        // &__img {
+        //   width: 100%;
+        //   height: 100%;
+        //   object-fit: cover;
+        //   object-position: center top;
+        //   border-radius: 10px;
+        // }
+
+        &__info {
+          margin: auto;
+          position: absolute;
+          left: 50%;
+          bottom: -20px;
+          transform: translateX(-50%);
+          width: 80%;
+          max-height: 56px;
+          padding: 8px;
+          background-color: black;
+          border-radius: 10px;
+          transition: max-height ease-in-out 0.5s;
+          overflow: hidden;
+
+          &:hover {
+            background-color: black;
+          }
+          &-name {
+            margin: 0;
+            text-decoration: none;
+            padding-top: 8px;
+            padding-bottom: 16px;
+            color: white;
+            font-size: 14px;
+            transition: all ease-in-out 0.3s;
+          }
+
+          &-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            color: grey;
+
+            &-icon {
+              width: 14px;
+              height: 14px;
+            }
+
+            &-number {
+              font-size: 14px;
+              text-decoration: none;
+              margin: 0;
+            }
+          }
+        }
+
+        &__image {
+          object-position: top center;
+          &-container {
+            border-radius: 10px;
+            overflow: hidden;
+          }
+        }
+
+        @include imageRatio(261, 300, $className: "image");
+
+        @media screen and (max-width: 575.98px) {
+          width: 60%;
+          margin: auto;
+        }
+
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
+      }
+    }
+
+    &-button {
+      position: relative;
+      color: black;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all ease-in-out 0.4s;
+      cursor: pointer;
+
+      &:hover {
+        color: color(text, primary);
+
+        &:after {
+          border-color: color(text, primary);
+        }
+      }
+
+      &:after {
+        @extend %hover-style;
+        left: 100%;
+        margin-left: 10px;
+
+        border-bottom: 3px solid black;
+      }
+    }
+  }
+
+  &__button {
+    color: black;
+
+    &:after {
+      border: 2px solid black;
+    }
+  }
+}
+
+.smarter {
+  overflow: hidden;
+
+  &__background {
+    padding: 200px 0;
+
+    background-repeat: no-repeat;
+    background-image: url("../../img/cta-fig-3.jpg");
+    background-position: center;
+    background-size: cover;
+
+    transition: all ease-in-out 0.4s;
+
+    // &:has(.try__content:hover) {
+    //   background-size: 105%;
+    // }
+
+    &:hover &__button {
+      &:after {
+        opacity: 1;
+        padding-right: 100px;
+      }
+    }
+  }
+
+  &__container {
+  }
+
+  &__row {
+    justify-content: center;
+  }
+
+  &__content {
+    width: 100%;
+    padding: 42px;
+    margin: auto;
+    background-color: black;
+    color: white;
+
+    @media screen and (max-width: 480px) {
+      padding: 24px;
+    }
+
+    // @media screen and (max-width: 575.98px) {
+    //   max-width: 300px;
+    // }
+
+    &:hover .section-title__highlight {
+      color: color(text, primary);
+    }
+
+    &:hover .smarter__button {
+      &:after {
+        opacity: 1;
+        padding-right: 50px;
+      }
+    }
+    &-text {
+      &-title {
+        font-weight: 700;
+      }
+
+      &-desc {
+        margin-bottom: 50px;
+        color: grey;
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__title {
+    @media screen and (max-width: 575.98px) {
+      text-align: unset !important;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    @media screen and (max-width: 575.98px) {
+      text-align: unset;
+    }
+  }
+
+  &__button {
+    color: white;
+    &:hover {
+      color: color(text, primary);
+
+      &:after {
+        border-color: color(text, primary);
+      }
+    }
+
+    &:after {
+      @extend %hover-style;
+      left: 100%;
+      margin-left: 10px;
+      border-bottom: 3px solid white;
+    }
+  }
+}
